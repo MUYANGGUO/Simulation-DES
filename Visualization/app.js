@@ -40,9 +40,9 @@ const material = {
 };
 
 const DEFAULT_THEME = {
-  buildingColor: [74, 80, 87],
-  trailColor0: [253, 128, 93],
-  trailColor1: [23, 184, 190],
+//   buildingColor: [74, 80, 87],
+//   trailColor0: [253, 128, 93],
+//   trailColor1: [23, 184, 190],
   material,
   effects: [lightingEffect]
 };
