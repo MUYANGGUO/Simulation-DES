@@ -4,7 +4,8 @@ import {render} from 'react-dom';
 import {StaticMap} from 'react-map-gl';
 import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import DeckGL from '@deck.gl/react';
-import {PolygonLayer} from '@deck.gl/layers';
+// import {PolygonLayer} from '@deck.gl/layers';
+import {PathLayer} from '@deck.gl/layers';
 import {TripsLayer} from '@deck.gl/geo-layers';
 
 // Set your mapbox token here
@@ -15,7 +16,9 @@ const DATA_URL = {
 //   BUILDINGS:
 //     'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/buildings.json', // eslint-disable-line
   TRIPS:
-  './test_output.json'
+  './test_output.json',
+  LIGHTS:
+  './lights.json'
     // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips-v7.json' // eslint-disable-line
 };
 
