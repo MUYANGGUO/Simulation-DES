@@ -16,7 +16,7 @@ const DATA_URL = {
 //   BUILDINGS:
 //     'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/buildings.json', // eslint-disable-line
   TRIPS:
-  './test_output.json',
+  './test150401.json',
   LIGHTS:
   './lights.json'
     // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips-v7.json' // eslint-disable-line
@@ -79,8 +79,8 @@ export default class App extends Component {
 
   _animate() {
     const {
-      loopLength = 1800, // unit corresponds to the timestamp in source data
-      animationSpeed = 500 // unit time per second
+      loopLength = 360, // unit corresponds to the timestamp in source data
+      animationSpeed = 5 // unit time per second
     } = this.props;
     const timestamp = Date.now() / 1000;
     const loopTime = loopLength / animationSpeed;
@@ -107,17 +107,25 @@ export default class App extends Component {
         getTimestamps: d => d.timestamps,
         // getColor: d => (d.vendor === 0 ? theme.trailColor0 : theme.trailColor1),
         getColor: function(d){ 
-            if (d.lane == 0) 
+            if (d.lane <= 3.0) 
             return [255,102,102]; 
-            else if(d.lane == 1) 
-            return [178,255,102]; 
-            else  
+            else if(d.lane == 4.0) 
+            return [178,255,102];
+            else if (d.lane == 5.0)
             return [102,255,255]; 
+            else if (d.lane == 6.0 || d.lane == 7.0)
+            return [255,153,153];
+            else if (d.lane==8.0)
+            return [153,255,153];
+            else if (d.lane == 9.0)
+            return [153,153,255];
+            else 
+            return [255,255,153];
               },
         opacity: 1,
         widthMinPixels: 1,
         rounded: true,
-        trailLength,
+        trailLength: 2,
         currentTime: this.state.time,
         shadowEnabled: false
       })
