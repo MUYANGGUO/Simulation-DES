@@ -3,13 +3,13 @@
 ```bash
 # cd to the Visualization folder
 cd ../Simulation-DES/Visualization
-# install dependencies using node.js
+# install dependencies using node.js to install the dependencies
 npm install
 ```
 
 ## run:
 
-After getting the test.json from running simulator.py in the upper level directory, cd to Visualization directory, and run the following command:
+After getting the **test.json** (will be stored in the visualization folder) from running simulator.py in the upper level directory, cd to Visualization directory, and run the following command:
 
 ```bash
 npm start
