@@ -19,10 +19,18 @@ This project will simulate this new traffic pattern with a discrete events simul
 </p>
 
 ## Installation
-
-```
+1. Install the complete software package:
+```bash
 git clone git@github.com:MUYANGGUO/Simulation-DES.git
 ```
+2. Install the visualization dependencies
+```bash
+cd ~/.../Simulation-DES/Visualization
+npm install
+```
+**note:** <br>
+The Visualization is a react.js web page application, it needs `node.js` installed. The dependency packages need to be installed with `npm install`. The Visualization also depends on the Simulation results. The simulation python software package will generate a test.json file which will overwrite the current test.json in Visualization folder.
+
 ## Run Simulation
 ```
 cd ~/your location path/Simulation-DES
@@ -60,6 +68,39 @@ python3 simulator.py 150 4 0.1 >output_test1.txt
 The command window will print out the configurations info and reminders, once the program complete, an output folder will be generated for saving plots. <br>
 If with `>output.txt` added, the system output will be saved in this text file. If without this, the system outputs will pop out in the command window. 
 
+## Run Visualization
+
+After getting the **test.json** (will be stored in the visualization folder) from running simulator.py in the upper level directory, cd to Visualization directory, and run the following command:
+
+```bash
+npm start
+```
+The localhost will be started, and a web browser with the visualization page will be shown up. 
+
+### Animation speed setting:
+
+The animation cycle time, looplenth should be based on your simulation time duration (unit: second). 
+If you run the simulation over 1 hour, you should set this number at least 3600. 
+
+The animation speed is the scaled up playback speedup. You can set any number to increase the time lapse speed for playback.
+
+In app.js line 75. 
+
+```javascript
+  _animate() {
+    const {
+      loopLength = 360, // unit corresponds to the timestamp in source data
+      animationSpeed = 2 // unit time per second
+    } = this.props;
+    const timestamp = Date.now() / 1000;
+    const loopTime = loopLength / animationSpeed;
+
+    this.setState({
+      time: ((timestamp % loopTime) / loopTime) * loopLength
+    });
+    this._animationFrame = window.requestAnimationFrame(this._animate.bind(this));
+  }
+```
 
 
 ## Output Figures
@@ -146,7 +187,11 @@ If with `>output.txt` added, the system output will be saved in this text file. 
 <img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/withoutred.png"  width="500" height="500">
 </p>
 
-## Visualization Hightlights
+## Visualization
+Graphical playback of the simulation results can provide an intuitive and direct understanding of the discrete events happening. Although the events are discrete, we managed to visualize the simulation in continuous time span by placing the discrete time stamps into an unit time stepped visualization process. To achieve better playback visual effect, we chose to use javascript and react framework to render the events log in web browser. We chose to use deck.gl, a powerful open-sourced, web-GL based visualization platform to playback the logs. <br>
+We added motion tracks to describe the car/pedestrain movements, mapped the event happening with real world longitude latitude coordinates in a zoomed interactive real map, by using mapbox's service. 
+Shown below is a screenshot of our visualization. <br>
+
 <p align="center">
 <img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/vis1.png" width="500" height="500">
 </p>
@@ -154,10 +199,17 @@ If with `>output.txt` added, the system output will be saved in this text file. 
 <img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/vis2.png"  width="500" height="500">
 </p>
 
+The web page is 3D and interactive, user can zoom, pan, rotate to view the playback from any angle. The camera auto focused to the tech square intersection location. We used different color scheme to differentiate the lanes, for example, North lane running towards are red, east lane is green, west lane is purple, pedestrian as yellow. We also use tail length of the car's motion track to describe whether it is passing or waiting, waiting cars will have slow speed , short tails approaching to the intersection, while cars passing the intersection will have higher speed, longer tails motion track. 
+
+**Video Demo**
+
+<a href="https://www.youtube.com/watch?feature=player_embedded&v=nKSSbqjWDY8
+" target="_blank"><img src="https://img.youtube.com/vi/nKSSbqjWDY8/0.jpg" 
+alt="Demo"/></a>
+
 ## Result Table
 
 Plese kindly visit out_sample.txt file to see the sample test results logs. 
-
 
 
 ## Analysis of Results
