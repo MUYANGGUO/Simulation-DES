@@ -26,21 +26,40 @@ git clone git@github.com:MUYANGGUO/Simulation-DES.git
 ## Run Simulation
 ```
 cd ~/your location path/Simulation-DES
-python3 simulator.py N T
+python3 simulator.py N P T
 ```
-> N: Number of events within time duration, T: Time duration (hr). <br> Note that you should come up with these two number starting with the expectation of the events/per unit time rate, as the model will apply a poisson random process to simulate the observed occurrence of events within the time duration. The sampled observed events rate will be close to the expectation rate. 
+> N: Number of vehicle events within time duration, P: number of people events within time duration (unit is "crowd") ,T: Time duration (hr). <br> Note that you should come up with these two number starting with the expectation of the events/per unit time rate, as the model will apply a poisson random process to simulate the observed occurrence of events within the time duration. The sampled observed events rate will be close to the expectation rate. 
 
   help line for understanding the software inputs:
 ```
 python3 simulator.py -h
 ```
-Example: 
+And the helper function will show:
 
 ```
-python3 simulator.py 5000 1
+usage: simulator.py [-h] total_events total_people simulation_time
+
+positional arguments:
+  total_events     :indicate the total events would like to simulate,
+                   requested here
+  total_people     :indicate the total people would like to simulate,
+                   requested here
+  simulation_time  :indicate simulation duration time, unit is hour, requested
+                   here
+
+optional arguments:
+  -h, --help       show this help message and exit
 ```
 
-The command window will print out the configurations info and reminders, once the program complete, an output folder will be generated for saving plots. 
+Run Example: 
+
+```
+python3 simulator.py 150 4 0.1 >output_test1.txt
+```
+
+The command window will print out the configurations info and reminders, once the program complete, an output folder will be generated for saving plots. <br>
+If with `>output.txt` added, the system output will be saved in this text file. If without this, the system outputs will pop out in the command window. 
+
 
 
 ## Output Figures
@@ -116,13 +135,36 @@ The command window will print out the configurations info and reminders, once th
 <img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/outputs/Comparison_lane_5_Timestamps.png" width="500" height="500">
 </p>
 
+## Discrete Event Flow Chart 
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/ped.png" width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/withred.png"  width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/withoutred.png"  width="500" height="500">
+</p>
+
+## Visualization Hightlights
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/vis1.png" width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/vis2.png"  width="500" height="500">
+</p>
+
 ## Result Table
 
-[Under Construction]
+Plese kindly visit out_sample.txt file to see the sample test results logs. 
+
+
 
 ## Analysis of Results
 
-[Under Construction]
+
+
+
 
 
 

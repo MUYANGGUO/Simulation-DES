@@ -213,8 +213,8 @@ class server:
           cur_car_data = {'id': cur_car.ID.tolist(),'timestamps':(cur_car.timeStamp),'lane':cur_car.lane.tolist(),'lane_history':cur_car.laneHistoy,
                           'path':coordinates}
           output_vehicle.append(cur_car_data)
-          print(cur_car)
-          print(str(cur_car.timeStamp[:]) + " Time stamp \n" )
+        #   print(cur_car)
+        #   print(str(cur_car.timeStamp[:]) + " Time stamp \n" )
 
       # run the pedstrian simulation
       output_pedstrian = []
@@ -241,7 +241,7 @@ class server:
 
           output_vehicle.append(cur_ped_data)
           updated_global_p_q[int(cur_ped.origin)].append(cur_ped)
-          print(cur_ped)
+        #   print(cur_ped)
           # cur_ped_data = {'id': int(cur_ped.ID),'timestamps': (cur_ped.timeStamp), 'origin': int(cur_ped.origin), 'destination': int(cur_ped.destination)}
           # output_vehicle.append(cur_ped_data)
 

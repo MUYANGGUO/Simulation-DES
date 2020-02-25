@@ -100,8 +100,6 @@ def main():
     initial_time_stamps_people, poisson = main_scene.poisson_generate_timestamps_people()
 
     np.random.seed(main_scene.rng_seed)
-    print("time stamps initial \n")
-    print(initial_time_stamps)
     num_trial = len(initial_time_stamps)
     car_type = np.zeros(shape=(num_trial,))
     which_lane = np.zeros(shape=(num_trial,))
@@ -116,7 +114,6 @@ def main():
             car_direction[i] = 0
         elif(which_lane[i] == 0 or which_lane[i] == 5):
             dir = np.random.randint(2, size = 1)
-            print(dir)
             if (dir == 0):
 
                 car_direction[i] = 0
