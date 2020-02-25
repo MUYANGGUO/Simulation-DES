@@ -4,7 +4,12 @@
         "size":["small", "medium", "large"],
         "direction": ["up","left","right"]
     },
-    "rng_seed" :8
+    "rng_seed" :8,
+    "cycle_time" : 61,
+    "north_traffic_light" : [20,23,61],
+    "east_west_traffic_light" : [38,58,61],
+    "pedestrian_traffic_light" : [23,38,61]
+
 }
 
 

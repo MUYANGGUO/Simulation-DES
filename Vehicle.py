@@ -10,9 +10,12 @@ class Vehicle:
     self.type = type
     self.arrival_time = arrival_time
     self.waiteTime = 0
+    self.leftwaitTime = 0
+    self.timeStamp = []
+    self.laneHistoy = [lane]
   def __repr__(self):
-    return "Vehicle ID : " + str(self.ID) + " " + "Arrival_Time: " + str(self.arrival_time) + ", Direction: " + str(self.direction)
+    return "Vehicle ID : " + str(self.ID) + " "  + ", Direction: " + str(self.direction) +" cur Lane :" + str(self.lane) +" New Lane :" + str(self.laneHistoy[-1])
   def __lt__(self, other):
-    return self.arrival_time < other.arrival_time
+    return self.arrival_time > other.arrival_time
 
 

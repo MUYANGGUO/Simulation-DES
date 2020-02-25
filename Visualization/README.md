@@ -1,29 +1,43 @@
-This is a minimal standalone version of the [TripsLayer example](https://deck.gl/#/examples/custom-layers/trip-routes)
-on [deck.gl](http://deck.gl) website.
-
-### Usage
-
-Copy the content of this folder to your project. 
-
-To see the base map, you need a [Mapbox access token](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/). You can either set an environment variable:
+## installation guide:
 
 ```bash
-export MapboxAccessToken=<mapbox_access_token>
+# cd to the Visualization folder
+cd ../Simulation-DES/Visualization
+# install dependencies using node.js
+npm install
 ```
 
-Or set `MAPBOX_TOKEN` directly in `app.js`.
+## run:
 
-Other options can be found at [using with Mapbox GL](../../../docs/get-started/using-with-mapbox-gl.md).
+After getting the test.json from running simulator.py in the upper level directory, cd to Visualization directory, and run the following command:
 
 ```bash
-# install dependencies
-npm install
-# or
-yarn
-# bundle and serve the app with webpack
 npm start
 ```
+The localhost will be started, and a web browser with the visualization page will be shown up. 
 
-### Data format
-Sample data is stored in [deck.gl Example Data](https://github.com/uber-common/deck.gl-data/tree/master/examples/trips). To use your own data, checkout
-the [documentation of TripsLayer](https://github.com/uber/deck.gl/tree/master/modules/experimental-layers/src/trips-layer).
+## Animation speed setting:
+
+The animation cycle time, looplenth should be based on your simulation time duration (unit: second). 
+If you run the simulation over 1 hour, you should set this number at least 3600. 
+
+The animation speed is the scaled up playback speedup. You can set any number to increase the time lapse speed for playback.
+
+In app.js line 75. 
+
+```javascript
+  _animate() {
+    const {
+      loopLength = 360, // unit corresponds to the timestamp in source data
+      animationSpeed = 2 // unit time per second
+    } = this.props;
+    const timestamp = Date.now() / 1000;
+    const loopTime = loopLength / animationSpeed;
+
+    this.setState({
+      time: ((timestamp % loopTime) / loopTime) * loopLength
+    });
+    this._animationFrame = window.requestAnimationFrame(this._animate.bind(this));
+  }
+```
+

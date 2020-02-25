@@ -13,13 +13,8 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoibXV5YW5nZ3VvIiwiYSI6ImNrMnA0b3VrNTAwamgzZW55YTU
 
 // Source data CSV
 const DATA_URL = {
-//   BUILDINGS:
-//     'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/buildings.json', // eslint-disable-line
-  TRIPS:
-  './test150401.json',
-  LIGHTS:
-  './lights.json'
-    // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips-v7.json' // eslint-disable-line
+
+  TRIPS:'./test.json'
 };
 
 const ambientLight = new AmbientLight({
@@ -80,7 +75,7 @@ export default class App extends Component {
   _animate() {
     const {
       loopLength = 360, // unit corresponds to the timestamp in source data
-      animationSpeed = 5 // unit time per second
+      animationSpeed = 2 // unit time per second
     } = this.props;
     const timestamp = Date.now() / 1000;
     const loopTime = loopLength / animationSpeed;
