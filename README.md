@@ -178,13 +178,13 @@ In app.js line 75.
 
 ## Discrete Event Flow Chart 
 <p align="center">
-<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/ped.png" width="500" height="500">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/ped.png" width="600" height="300">
 </p>
 <p align="center">
-<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/withred.png"  width="500" height="500">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/withred.png"  width="600" height="300">
 </p>
 <p align="center">
-<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/withoutred.png"  width="500" height="500">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/withoutred.png"  width="600" height="300">
 </p>
 
 ## Visualization
