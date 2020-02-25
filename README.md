@@ -214,8 +214,22 @@ Plese kindly visit out_sample.txt file to see the sample test results logs.
 
 ## Analysis of Results
 
+Please also see output figures section. 
 
+Besides, we performed a confidence level analysis by swapping different random generator seed numbers. The results shown below:
 
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/PP.png" width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/PW.png"  width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/VP.png"  width="500" height="500">
+</p>
+<p align="center">
+<img src="https://github.com/MUYANGGUO/Simulation-DES/blob/master/README_FILES/VW.png"  width="500" height="500">
+</p>
 
 
 
